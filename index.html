@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      background-color: #075E54;
-      color: #FFFFFF;
+      background-color: #FFFFFF; /* Fundo branco */
+      color: #333333; /* Texto escuro */
       font-family: 'Segoe UI', 'Roboto', sans-serif;
       display: flex;
       flex-direction: column;
@@ -23,12 +23,12 @@
     .contador {
       font-size: 3rem;
       font-weight: bold;
-      color: #25D366;
+      color: #128C7E; /* Verde escuro do WhatsApp */
       margin-top: 20px;
     }
     .check {
       font-size: 4rem;
-      color: #25D366;
+      color: #128C7E;
       display: none;
     }
   </style>
@@ -40,25 +40,19 @@
   <div class="check" id="check">✔</div>
 
   <script>
-    // Lista com dois números de WhatsApp
     const numeros = [
       '5573991352953',
       '5573991299778'
     ];
 
-    // Pega o índice atual salvo no navegador (ou começa com 0)
     let indice = parseInt(localStorage.getItem('indiceNumero')) || 0;
-
-    // Define o número atual e salva o próximo índice para a próxima visita
     const numeroAtual = numeros[indice];
     const proximoIndice = (indice + 1) % numeros.length;
     localStorage.setItem('indiceNumero', proximoIndice);
 
-    // Mensagem personalizada com encode para URL
     const mensagem = encodeURIComponent("Olá, Amor! Como tenho acesso ao seu conteúdo.");
     const link = `https://wa.me/${numeroAtual}?text=${mensagem}`;
 
-    // Contador regressivo de 3 segundos
     let segundos = 3;
     const contador = document.getElementById("contador");
     const check = document.getElementById("check");
